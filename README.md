@@ -22,6 +22,8 @@ Why I chose this: I decided to use the Arduino framework and IDE for two main re
 a) Focus on the Code: I am already very comfortable with the Arduino environment. Using a tool I know well allowed me to focus completely on the main crux of the assignment (the serialization logic and pointer arithmetic). 
 b) Rapid Verification: The Arduino Serial Monitor gave me a quick way to test and visually verify the JSON output instantly. Since the assignment permits the Arduino framework as an alternative, this felt like the most efficient path to a working and bug free solution.
 
+I verified the logic using the Wokwi Arduino Simulator to ensure the JSON generation is correct and memory safe before deploying to physical hardware. This allowed for rapid iteration and debugging of the serialization edge cases.
+
 3. Project Structure
 I organized the code in the following structure
 /MeterReader_Assignment ->
@@ -102,7 +104,7 @@ When running the demo, the library produces this exact JSON (verified using JSON
   }
 ]
 
-
+![Serial Monitor Output](DemoOutput.png)
 ## System Data Flow
 ```mermaid
 graph LR
@@ -110,3 +112,4 @@ graph LR
     B -->|Serialization Logic| C{Buffer Check}
     C -- Success --> D[JSON String Output]
     C -- Error --> E[Error Code -1]
+
