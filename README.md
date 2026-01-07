@@ -101,3 +101,12 @@ When running the demo, the library produces this exact JSON (verified using JSON
     }
   }
 ]
+
+
+## System Data Flow
+```mermaid
+graph LR
+    A[Raw Sensor Data] -->|Structs| B(MeterSerializer Library)
+    B -->|Serialization Logic| C{Buffer Check}
+    C -- Success --> D[JSON String Output]
+    C -- Error --> E[Error Code -1]
